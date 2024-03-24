@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<Style>
+    .main {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    /* body{
+        background-image: url("./back.jpg");
+        background-repeat: no-repeat;
+         background-size: cover;
+    } */
+    .photo{
+        width:300px;
+    }
+    @media screen and (max-width:480px){
+        .photo{
+            width:100px;
+        }
+        .body{
+            background-image:none
+        }
+    }
+</Style>
+
+<body>
+    
+    <div class="main">
+        <button style="background-color: gold;">
+            <h2 ></h2>
+        </button">
+        <button style="background-color: gold;">
+            <h2></h2>
+        </button >
+        <button style="background-color: gold;">
+            <h2></h2>
+        </button>
+    </div>
+    <center>
+        <h1></h1>
+        <h2> </h2>
+        
+    </center>
+    <audio id="buzz-audio">
+        <source src="./ayogi-309.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <!-- <audio id="buzz">
+        <source src="./XYPEQMK-baby-crying.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio> -->
+    <center><img src=""  class="photo"></center>
+<center><h2 class="again"></h2></center>
+    <script>
+        function getRandomIndex(arrayLength) {
+            return Math.floor(Math.random() * arrayLength);
+        }
+
+        var a = ["Rock", "Paper", "Scissors"];
+
+        for (let i = 0; i < 1; i++) {
+            let randomIndex = getRandomIndex(a.length);
+            var rest = a[randomIndex]
+            console.log(a[randomIndex]);
+        }
+
+        var rock = document.getElementsByTagName("h2");
+        rock[0].innerHTML = "Rock";
+        var paper = document.getElementsByTagName("h2");
+        paper[1].innerHTML = "paper";
+        var sci = document.getElementsByTagName("h2");
+        sci[2].innerHTML = "Scisscor";
+        var res = document.getElementsByTagName("h1");
+        res[0].innerHTML = ""
+        var ime = document.getElementsByTagName("img");
+        // ime[0].setAttribute()
+
+        console.log(rest)
+        var com = document.getElementsByTagName("h2");
+        com[3].innerHTML = ""
+        var again = document.getElementsByTagName("h2");
+        again[4].addEventListener("click",()=>{
+            window.location.assign("./index.html")
+        })
+       
+
+        rock[0].addEventListener("click", () => {
+
+            if (rest == "Rock") {
+                res[0].innerHTML = "tie"
+                console.log("tie")
+                com[3].innerHTML = "Computer :" + rest;
+                ime[0].setAttribute("src", "./tie.gif");
+                again[4].innerHTML = "Play Again"
+        again[4].setAttribute("style", "color: blue; font-family: 'Times New Roman', Times, serif; font-size: large;background-color:bisque;  width:100px;  height:30px; line-height: 1.6; border-radius: 5%;")
+
+            } else if (rest == "Paper") {
+                // res[0].innerHTML="losse! Rock beats paper"
+                // ime[0].setAttribute("src","./sad.gif");
+                // console.log("lose")
+                res[0].innerHTML = "Hurry! u won"
+                console.log("win")
+                com[3].innerHTML = "Computer :" + rest;
+                playBuzzSound();
+                ime[0].setAttribute("src", "./dance.webp");
+                again[4].innerHTML = "Play Again"
+        again[4].setAttribute("style", "color: blue; font-family: 'Times New Roman', Times, serif; font-size: large;background-color:bisque;  width:100px;  height:30px; line-height: 1.6; border-radius: 5%;")
+            }
+            else {
+                // res[0].innerHTML="Hurry! u won"
+                // console.log("win")
+                // playBuzzSound();
+                //   ime[0].setAttribute("src","./dance.webp");
+                com[3].innerHTML = "Computer :" + rest;
+                res[0].innerHTML = "U lost"
+                ime[0].setAttribute("src", "./sad.gif");
+                console.log("lose")
+                again[4].innerHTML = "Play Again"
+        again[4].setAttribute("style", "color: blue; font-family: 'Times New Roman', Times, serif; font-size: large;background-color:bisque;  width:100px;  height:30px; line-height: 1.6; border-radius: 5%;")
+
+
+            }
+        })
+        paper[1].addEventListener("click", () => {
+
+            if (rest == "Paper") {
+                res[0].innerHTML = "tie"
+                console.log("tie")
+                com[3].innerHTML = "Computer :" + rest;
+                //   ime[0].setAttribute("src","./sad.gif");
+                ime[0].setAttribute("src", "./tie.gif");
+                again[4].innerHTML = "Play Again"
+        again[4].setAttribute("style", "color: blue; font-family: 'Times New Roman', Times, serif; font-size: large;background-color:bisque;  width:100px;  height:30px; line-height: 1.6; border-radius: 5%;")
+            }
+            else if (rest == "Rock") {
+                // res[0].innerHTML="Hurry! U won"
+                // console.log("won")
+                //   playBuzzSound();
+                //   ime[0].setAttribute("src","./dance.webp");
+                res[0].innerHTML = " U lost"
+                com[3].innerHTML = "Computer :" + rest;
+                console.log("lost")
+                ime[0].setAttribute("src", "./sad.gif");
+                again[4].innerHTML = "Play Again"
+        again[4].setAttribute("style", "color: blue; font-family: 'Times New Roman', Times, serif; font-size: large;background-color:bisque;  width:100px;  height:30px; line-height: 1.6; border-radius: 5%;")
+            }
+            else {
+                // res[0].innerHTML="lost"
+                // console.log("lost")
+                // ime[0].setAttribute("src","./sad.gif");
+                res[0].innerHTML = "Hurry! U won"
+                com[3].innerHTML = "Computer :" + rest;
+                console.log("won")
+                playBuzzSound();
+                ime[0].setAttribute("src", "./dance.webp");
+                again[4].innerHTML = "Play Again"
+        again[4].setAttribute("style", "color: blue; font-family: 'Times New Roman', Times, serif; font-size: large;background-color:bisque;  width:100px;  height:30px; line-height: 1.6; border-radius: 5%;")
+
+            }
+        })
+        sci[2].addEventListener("click", () => {
+
+            if (rest == "Scissors") {
+                res[0].innerHTML = "tie"
+                com[3].innerHTML = "Computer :" + rest;
+                console.log("tie")
+                ime[0].setAttribute("src", "./tie.gif");
+                again[4].innerHTML = "Play Again"
+        again[4].setAttribute("style", "color: blue; font-family: 'Times New Roman', Times, serif; font-size: large;background-color:bisque;  width:100px;  height:30px; line-height: 1.6; border-radius: 5%;")
+            }
+            else if (rest == "Rock") {
+                //     res[0].innerHTML="lost"
+                //     console.log("lose")
+                //     ime[0].setAttribute("src","./sad.gif");
+                res[0].innerHTML = "Hurry! u won"
+                com[3].innerHTML = "Computer :" + rest;
+                console.log("won")
+                playBuzzSound();
+                ime[0].setAttribute("src", "./dance.webp")
+                again[4].innerHTML = "Play Again"
+        again[4].setAttribute("style", "color: blue; font-family: 'Times New Roman', Times, serif; font-size: large;background-color:bisque;  width:100px;  height:30px; line-height: 1.6; border-radius: 5%;")
+            }
+            else {
+                // res[0].innerHTML="Hurry! u won"
+                // console.log("won")
+                // playBuzzSound();
+                //   ime[0].setAttribute("src","./dance.webp");
+
+                res[0].innerHTML = "U lost"
+                console.log("lose")
+                com[3].innerHTML = "Computer :" + rest;
+                ime[0].setAttribute("src", "./sad.gif");
+                again[4].innerHTML = "Play Again"
+        again[4].setAttribute("style", "color: blue; font-family: 'Times New Roman', Times, serif; font-size: large;background-color:bisque;  width:100px;  height:30px; line-height: 1.6; border-radius: 5%;")
+            }
+
+
+        })
+        function playBuzzSound() {
+            var audio = document.getElementById("buzz-audio");
+            audio.play();
+        }
+        // function playBuzzSound() {
+        //     var audio = document.getElementById("buzz");
+        //     audio.play();
+        // }
+
+    </script>
+</body>
+
+</html>
